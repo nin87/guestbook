@@ -9,6 +9,7 @@ runtime:
         - sodium
         - iconv
         - ctype
+        - pdo_pgsql
         
 
 #variables:
@@ -45,3 +46,8 @@ hooks:
         set -x -e
 
         (>&2 symfony-deploy)
+        
+relationships:
+    database: "db:postgresql"
+    
+    
