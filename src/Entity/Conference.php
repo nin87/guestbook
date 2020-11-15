@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Conference
 {
+    public function __toString(): string
+    {
+        return $this->city.' '.$this->year;
+    }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -38,6 +42,7 @@ class Conference
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="conference", orphanRemoval=true)
      */
     private $comments;
+    
 
     public function __construct()
     {
